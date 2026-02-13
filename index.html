@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b8a2d9db4fa0bafc8f7c0cffb6ede824 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b8a2d9db4fa0bafc8f7c0cffb6ede824" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b8a2d9db4fa0bafc8f7c0cffb6ede824 = L.map(
+                "map_b8a2d9db4fa0bafc8f7c0cffb6ede824",
+                {
+                    center: [-22.387926349999958, -43.17764134999996],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d4f929fa7dbcb17a1c9a22647573b672 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_d4f929fa7dbcb17a1c9a22647573b672.addTo(map_b8a2d9db4fa0bafc8f7c0cffb6ede824);
+        
+    
+            map_b8a2d9db4fa0bafc8f7c0cffb6ede824.fitBounds(
+                [[-22.573332599999958, -43.37730129999994], [-22.20252009999996, -42.977981399999976]],
+                {}
+            );
+        
+    
+            var feature_group_bd80ac436c10bfb331d13d991580aa74 = L.featureGroup(
+                {}
+            );
+        
+    
+        function geo_json_44c7cf88237c5d1dc8760837cfdcee72_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#1f78b4", "fillColor": "#1f78b4", "fillOpacity": 0.25, "weight": 2};
+            }
+        }
+        function geo_json_44c7cf88237c5d1dc8760837cfdcee72_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#1f78b4", "fillColor": "#1f78b4", "fillOpacity": 0.4, "weight": 3};
+            }
+        }
+        function geo_json_44c7cf88237c5d1dc8760837cfdcee72_pointToLayer(feature, latlng) {
+            var opts = {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3};
+            
+            let style = geo_json_44c7cf88237c5d1dc8760837cfdcee72_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_44c7cf88237c5d1dc8760837cfdcee72_onEachFeature(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        geo_json_44c7cf88237c5d1dc8760837cfdcee72.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_44c7cf88237c5d1dc8760837cfdcee72_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_44c7cf88237c5d1dc8760837cfdcee72 = L.geoJson(null, {
+                onEachFeature: geo_json_44c7cf88237c5d1dc8760837cfdcee72_onEachFeature,
+            
+                style: geo_json_44c7cf88237c5d1dc8760837cfdcee72_styler,
+                pointToLayer: geo_json_44c7cf88237c5d1dc8760837cfdcee72_pointToLayer,
+        });
+
+        function geo_json_44c7cf88237c5d1dc8760837cfdcee72_add (data) {
+            geo_json_44c7cf88237c5d1dc8760837cfdcee72
+                .addData(data);
+        }
+            $.ajax("camadas/setores.geojson", {dataType: 'json', async: false})
+                .done(geo_json_44c7cf88237c5d1dc8760837cfdcee72_add);
+
+        
+    
+            geo_json_44c7cf88237c5d1dc8760837cfdcee72.bindTooltip(
+                `<div>
+                     <folium.features.GeoJsonPopup object at 0x75f5d1849610>
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            geo_json_44c7cf88237c5d1dc8760837cfdcee72.addTo(feature_group_bd80ac436c10bfb331d13d991580aa74);
+        
+    
+            feature_group_bd80ac436c10bfb331d13d991580aa74.addTo(map_b8a2d9db4fa0bafc8f7c0cffb6ede824);
+        
+    
+            var feature_group_512216fa91588d5c44a8eb53d355bb8b = L.featureGroup(
+                {}
+            );
+        
+    
+        function geo_json_e0b1f1463777f650ceff339d938f6b79_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#33a02c", "fillColor": "#33a02c", "fillOpacity": 0.25, "weight": 2};
+            }
+        }
+        function geo_json_e0b1f1463777f650ceff339d938f6b79_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#33a02c", "fillColor": "#33a02c", "fillOpacity": 0.4, "weight": 3};
+            }
+        }
+        function geo_json_e0b1f1463777f650ceff339d938f6b79_pointToLayer(feature, latlng) {
+            var opts = {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3};
+            
+            let style = geo_json_e0b1f1463777f650ceff339d938f6b79_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_e0b1f1463777f650ceff339d938f6b79_onEachFeature(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        geo_json_e0b1f1463777f650ceff339d938f6b79.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_e0b1f1463777f650ceff339d938f6b79_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_e0b1f1463777f650ceff339d938f6b79 = L.geoJson(null, {
+                onEachFeature: geo_json_e0b1f1463777f650ceff339d938f6b79_onEachFeature,
+            
+                style: geo_json_e0b1f1463777f650ceff339d938f6b79_styler,
+                pointToLayer: geo_json_e0b1f1463777f650ceff339d938f6b79_pointToLayer,
+        });
+
+        function geo_json_e0b1f1463777f650ceff339d938f6b79_add (data) {
+            geo_json_e0b1f1463777f650ceff339d938f6b79
+                .addData(data);
+        }
+            $.ajax("camadas/drm2022.geojson", {dataType: 'json', async: false})
+                .done(geo_json_e0b1f1463777f650ceff339d938f6b79_add);
+
+        
+    
+            geo_json_e0b1f1463777f650ceff339d938f6b79.bindTooltip(
+                `<div>
+                     <folium.features.GeoJsonPopup object at 0x75f5d1849970>
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            geo_json_e0b1f1463777f650ceff339d938f6b79.addTo(feature_group_512216fa91588d5c44a8eb53d355bb8b);
+        
+    
+            feature_group_512216fa91588d5c44a8eb53d355bb8b.addTo(map_b8a2d9db4fa0bafc8f7c0cffb6ede824);
+        
+    
+            var feature_group_29a813e40a15521d65ded4d30d2fde33 = L.featureGroup(
+                {}
+            );
+        
+    
+        function geo_json_e208b863b06f801b37b780dc4f100a1a_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#e31a1c", "fillColor": "#e31a1c", "fillOpacity": 0.25, "weight": 2};
+            }
+        }
+        function geo_json_e208b863b06f801b37b780dc4f100a1a_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#e31a1c", "fillColor": "#e31a1c", "fillOpacity": 0.4, "weight": 3};
+            }
+        }
+        function geo_json_e208b863b06f801b37b780dc4f100a1a_pointToLayer(feature, latlng) {
+            var opts = {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3};
+            
+            let style = geo_json_e208b863b06f801b37b780dc4f100a1a_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_e208b863b06f801b37b780dc4f100a1a_onEachFeature(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        geo_json_e208b863b06f801b37b780dc4f100a1a.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_e208b863b06f801b37b780dc4f100a1a_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_e208b863b06f801b37b780dc4f100a1a = L.geoJson(null, {
+                onEachFeature: geo_json_e208b863b06f801b37b780dc4f100a1a_onEachFeature,
+            
+                style: geo_json_e208b863b06f801b37b780dc4f100a1a_styler,
+                pointToLayer: geo_json_e208b863b06f801b37b780dc4f100a1a_pointToLayer,
+        });
+
+        function geo_json_e208b863b06f801b37b780dc4f100a1a_add (data) {
+            geo_json_e208b863b06f801b37b780dc4f100a1a
+                .addData(data);
+        }
+            $.ajax("camadas/pmrr2017.geojson", {dataType: 'json', async: false})
+                .done(geo_json_e208b863b06f801b37b780dc4f100a1a_add);
+
+        
+    
+            geo_json_e208b863b06f801b37b780dc4f100a1a.bindTooltip(
+                `<div>
+                     <folium.features.GeoJsonPopup object at 0x75f5d1849550>
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            geo_json_e208b863b06f801b37b780dc4f100a1a.addTo(feature_group_29a813e40a15521d65ded4d30d2fde33);
+        
+    
+            feature_group_29a813e40a15521d65ded4d30d2fde33.addTo(map_b8a2d9db4fa0bafc8f7c0cffb6ede824);
+        
+    
+            var feature_group_c70c9f185b8974cfb503eee9c2f95db5 = L.featureGroup(
+                {}
+            );
+        
+    
+        function geo_json_d2930b5183d39f20ea8c72f43d98c7b0_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#ff7f00", "fillColor": "#ff7f00", "fillOpacity": 0.7, "weight": 2};
+            }
+        }
+        function geo_json_d2930b5183d39f20ea8c72f43d98c7b0_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#ff7f00", "fillColor": "#ff7f00", "fillOpacity": 0.4, "weight": 3};
+            }
+        }
+        function geo_json_d2930b5183d39f20ea8c72f43d98c7b0_pointToLayer(feature, latlng) {
+            var opts = {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3388ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3};
+            
+            let style = geo_json_d2930b5183d39f20ea8c72f43d98c7b0_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_d2930b5183d39f20ea8c72f43d98c7b0_onEachFeature(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        geo_json_d2930b5183d39f20ea8c72f43d98c7b0.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_d2930b5183d39f20ea8c72f43d98c7b0_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_d2930b5183d39f20ea8c72f43d98c7b0 = L.geoJson(null, {
+                onEachFeature: geo_json_d2930b5183d39f20ea8c72f43d98c7b0_onEachFeature,
+            
+                style: geo_json_d2930b5183d39f20ea8c72f43d98c7b0_styler,
+                pointToLayer: geo_json_d2930b5183d39f20ea8c72f43d98c7b0_pointToLayer,
+        });
+
+        function geo_json_d2930b5183d39f20ea8c72f43d98c7b0_add (data) {
+            geo_json_d2930b5183d39f20ea8c72f43d98c7b0
+                .addData(data);
+        }
+            $.ajax("camadas/vistorias.geojson", {dataType: 'json', async: false})
+                .done(geo_json_d2930b5183d39f20ea8c72f43d98c7b0_add);
+
+        
+    
+            geo_json_d2930b5183d39f20ea8c72f43d98c7b0.bindTooltip(
+                `<div>
+                     <folium.features.GeoJsonPopup object at 0x75f5d6940110>
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            geo_json_d2930b5183d39f20ea8c72f43d98c7b0.addTo(feature_group_c70c9f185b8974cfb503eee9c2f95db5);
+        
+    
+            feature_group_c70c9f185b8974cfb503eee9c2f95db5.addTo(map_b8a2d9db4fa0bafc8f7c0cffb6ede824);
+        
+    
+            var layer_control_14b953f03928c5c525cfe0bc795d7bd6_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_d4f929fa7dbcb17a1c9a22647573b672,
+                },
+                overlays :  {
+                    "Setores" : feature_group_bd80ac436c10bfb331d13d991580aa74,
+                    "DRM 2022" : feature_group_512216fa91588d5c44a8eb53d355bb8b,
+                    "PMRR 2017" : feature_group_29a813e40a15521d65ded4d30d2fde33,
+                    "Vistorias" : feature_group_c70c9f185b8974cfb503eee9c2f95db5,
+                },
+            };
+            let layer_control_14b953f03928c5c525cfe0bc795d7bd6 = L.control.layers(
+                layer_control_14b953f03928c5c525cfe0bc795d7bd6_layers.base_layers,
+                layer_control_14b953f03928c5c525cfe0bc795d7bd6_layers.overlays,
+                {"autoZIndex": true, "collapsed": false, "position": "topright"}
+            ).addTo(map_b8a2d9db4fa0bafc8f7c0cffb6ede824);
+
+        
+</script>
+</html>
